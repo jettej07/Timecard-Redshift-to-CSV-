@@ -48,7 +48,7 @@ class Redshift:
                     unauthorized_absence,
                     authorized_absence,
                     site
-                FROM public.v_utl_teleopti_billing_last_3_months
+                FROM [TABLE HERE]
                 WHERE date >= '{self.start_date}' AND date <= '{self.end_date}' AND campaign_grp ILIKE '%{campaign}%';
             """
             print(f'Fetching data for {campaign}...')
@@ -111,8 +111,7 @@ def test_connection(user, pw):
     try:
         print('Validating credentials...')
         conn = psycopg2.connect(
-            host='tku-redshift.cl7hlvwdi0q8.ap-southeast-1.'
-                'redshift.amazonaws.com',
+            host=[HOST HERE],
             dbname='dev',
             port='5439',
             user=user,
